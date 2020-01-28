@@ -1,0 +1,1662 @@
+/* Table of Contents
+* Global
+* Base
+* Colors
+* Typography
+* Utilities
+* Keyframes
+* Site Title/Navbar
+* Footer
+* Typography
+* Constant Telephone Icon
+* Frontpage Hero
+* Frontpage Primary Categories
+* Frontpage Parallax
+* Frontpage Featured and Secondary Categories
+* About Page
+* Store Tour Page
+** Featherlight
+* Products Archive Page
+* Products Single Page
+
+	Extra Small Devices
+* Frontpage Hero
+
+	Small Devices
+* Small Frontpage Testimonials
+* Small Frontpage Galleries
+* Small Block Template
+
+	Medium Devices
+
+	Large Devices
+* Large Frontpage Welcome
+* Large Frontpage Testimonials
+*/
+/*----- Global */
+/* utilize css smooth scroll behaviour for in-page anchors */
+html {
+	scroll-behavior: smooth;
+}
+
+/* force footer to bottom of page when content is short */
+html, body, #page {
+	height: 100%;
+}
+#page {
+	display: flex;
+	flex-direction: column;
+}
+.cb-page-content {
+	flex-grow: 1;
+	position: relative;/*for loading overlay*/
+}
+.page-loading-overlay {
+	background-color: #fff;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 50;
+}
+
+/*return focus rings to selectable elements if user presses the "tab" key*/
+body:not(.user-is-tabbing) button:focus,
+body:not(.user-is-tabbing) input:focus,
+body:not(.user-is-tabbing) select:focus,
+body:not(.user-is-tabbing) textarea:focus {
+	outline: none;
+}
+
+/*----- Base */
+a {
+	color: #d64669;
+}
+
+/* Colors */
+a:focus {
+	color: #5DBCD2; /*light blue*/
+	color: #272B4D;	/*navy blue*/
+	color: #232533; /*black*/
+	color: #E5D025; /*mustard yellow*/
+	color: #9E0246; /*deep pink*/
+	color: #4ECC78; /*medium green*/
+}
+/*----- Typography */
+@font-face {
+	font-family: Indie Flower;
+	src: url(../fonts/IndieFlower.ttf);
+	font-weight: normal;
+}
+@font-face {
+    font-family: Montserrat Regular;  
+    src: url(../fonts/Montserrat-Regular.ttf);  
+    font-weight: normal;  
+}
+@font-face {
+	font-family: Bellefair;
+	src: url(../fonts/Bellefair-Regular.ttf);
+	font-weight: normal;
+}
+body {
+	font-family: "Montserrat Regular", sans-serif;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, 
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Indie Flower", sans-serif;
+}
+.h2, h2 {
+	font-size: 2.2rem;
+}
+.h3, h3 {
+	font-size: 2rem;
+}
+.h4, h4 {
+	font-size: 1.8rem;
+}
+/*----- Header */
+/*-- super header */
+.superscript-header-infobar {
+	background-color: #5DBCD2; /*riptide*/
+	color: #fff;
+	position: relative;
+	z-index: 150;/* keep it above the navbar's box shadow */
+}
+.superscript-header-infobar a {
+	color: #fff;
+}
+.super-header-content {
+	display: flex;
+	justify-content: space-between;
+}
+/* social icon layout and spacing */
+.left-promo {
+	font-size: 28px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+.social-icon {
+	padding-right: 15px;
+}
+.social-icon a:hover {
+	text-decoration: none;
+}
+.social-icon a:focus {
+	outline-color: #d73b61;
+}
+/* Store hours and contact links */
+.right-promo {
+	font-size: 18px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+.right-promo > span {
+	padding-left: 15px;
+}
+/*-- stock header */
+/* don't need side margin with centered columns */
+.title-logo-block .navbar-brand {
+	margin-right: 0;
+}
+/* some shadow to accent header */
+#wrapper-navbar {
+	z-index: 100;
+	position: relative;
+	box-shadow: 0 -5px 21px 0px rgba(70, 70, 70, 0.86);
+}
+/* mobile button */
+.cb-navbar-colors .navbar-toggler {
+	color: rgba(0, 102, 128,.6);
+	border-color: rgba(0, 102, 128,.6);
+}
+.cb-navbar-colors .navbar-toggler-icon {
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 102, 128, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+/* header nav menu colors */
+.cb-navbar-colors .navbar-nav .nav-link {
+	color: #006680; /*teal*/
+}
+.cb-navbar-colors .navbar-nav .active>.nav-link, 
+.cb-navbar-colors .navbar-nav .nav-link.active, 
+.cb-navbar-colors .navbar-nav .nav-link.show, 
+.cb-navbar-colors .navbar-nav .show>.nav-link,
+.cb-navbar-colors .navbar-nav .nav-link:focus, 
+.cb-navbar-colors .navbar-nav .nav-link:hover {
+	color: #d02d4e; /*coral*/
+	position: relative; /*for active link color bar*/
+}
+
+/*----- Site Ankler / Site Footer */
+/*-- Ankler - map, hours, contact, etc */
+/* ankler background */
+.ankler-canvas {
+	background: #7cafaf;
+	background: linear-gradient(-26deg, #576f76, #63918e,#9fcfb9);
+	background: #5dbcd2;
+	padding-bottom: 15px;
+}
+/*- Map */
+/* spacing */
+.map-column {
+	padding: 0;
+	padding-bottom: 15px;
+}
+/* Map frame is the first flex-child. 400px tall for small screens*/
+.map-frame {
+	order: 0;
+	width: 100%;
+	height: 0;
+	overflow: hidden;	
+	padding-top: 400px;
+	position: relative;
+}
+.map-frame iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+
+/*- Store Info */
+/* business hours is the second flex-child up through large screens */
+.hours-column {
+	order: 1;
+	padding-bottom: 15px;
+	text-align: center;
+}
+/* flex box for easy spacing */
+.store-hours-wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 4rem 2rem;
+	border-radius: 5px;
+	background: #f8f9fa;
+	background: #fff;
+	color: #212529;
+	width: 100%;
+}
+/* business hours font styling */
+.day-block {
+	font-size: 1.1rem;
+	font-weight: bold;
+	margin-bottom: 0;
+}
+/* even spacing */
+.hour-block:last-child {
+	margin-bottom: 0;
+}
+
+/*- Contact */
+/* title color */
+.footer-contact-form .nf-form-title {
+	color: #fff;
+}
+/* vertically center fields */
+.footer-contact-form{
+	padding: 15px;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+/* remove margin from submit button */
+.contact-form-submit-wrapper {
+	margin-bottom: 0;
+}
+.contact-form-submit {
+	background-color: #d02d4e;
+	border-color: #d02d4e;
+}
+.contact-form-submit:hover {
+	background-color: #26FF5C;
+	border-color: #26FF5C;
+}
+/* stylize footer contact input fields */
+.footer-contact-field {
+	border: solid 1px #4da9be;
+	padding: 5px;
+}
+.footer-contact-field::placeholder {
+	color: #466a72;
+}
+.phone-title,
+.hours-title {
+	font-family: 'Bellefair', serif;
+	color: #d02d4e;
+}
+/*- Facebook */
+/* facebook feed column is always last flex-child */
+.fb-column {
+	order: 3;
+}
+.footer-fb-wrapper {
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+}
+/*-- Site Footer */
+div#wrapper-footer {
+	background: #036379;
+	color: #fff;
+}
+
+/*----- General Front Page*/
+.fp-section-header {
+	width: 100%;
+}
+
+/*----- Owl Carousel Hero */
+#hero {
+	height: 60vh;
+	margin-bottom: 2rem;
+}
+/*force height and width to match parent container*/
+#hero .owl-carousel,
+#hero .owl-stage-outer,
+#hero .owl-stage,
+#hero .owl-item {
+	height: 100%;
+	width: 100%;
+}
+/* prevent infinite page scroll bug */
+#hero .owl-item {
+	overflow: hidden;
+}
+/* center items with flex */
+.hero-image-wrapper {
+	align-items: center;
+	display: flex;
+	height: 100%;
+	justify-content: center;
+	width: 100%;
+}
+/* This allows for images of all sizes and ratios to be added
+ * without stretching or empty margins
+ */
+#hero .hero-image-wrapper img {
+	flex-shrink: 0;
+	max-width: unset;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+}
+/* overlay text with color background */
+.hero-text {
+	color: #181b31;
+	font-size: 15px;
+	font-family: 'Bellefair', serif;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 15px;
+	position: absolute;
+	bottom: 2%;
+	left: 2%;
+	right: 2%;
+	height: auto;
+}
+.hero-blue {
+	background-color: #8BDFF4;
+}
+.hero-sand {
+	background-color: #ffef8a;
+}
+.hero-pink {
+	background-color: #FF8CB2;
+}
+.hero-white {
+	background-color: #fff;
+}
+.cb-hero-slider {
+	position: absolute;
+}
+/* Navigation dots placement and style */
+#hero .owl-dots {
+	position: absolute;
+	bottom: -40px;
+	width: 100%;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+/* make dots a little larger */
+#hero .owl-dot span {
+	height: 13px;
+	width: 13px;
+}
+/* remove default focus outline as colors replace visual cue */
+#hero .owl-dot:focus {
+	outline: none;
+}
+/* dot hover and active color */
+#hero .owl-dot.active span,
+#hero .owl-dot:hover span {
+	background-color: #5dbcd2;
+}
+
+/*----- Frontpage About */
+/* vertical spacing */
+#fp-about {
+	padding-top: 1rem;
+}
+.fp-about-title {
+	color: #268da5;
+	font-family: 'Indie Flower', cursive;
+	font-size: 1.9rem;
+	line-height: 35px; 	
+}
+.about-content-block,
+.about-image-block {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+/* always center image in frame */
+.about-image-block {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+/* text alignment */
+.about-content-block {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.about-content-wrapper {
+	width: 100%;
+}
+.about-button-wrapper {
+	text-align: center;
+}
+/* read more button */
+.cb-button-primary {
+	color: #268da5;
+	background-color: transparent;
+	background-image: none;
+	border-color: #268da5;
+}
+.cb-button-primary:hover,
+.cb-button-primary:focus {
+	background-color: #268da5;
+	color: #fff;
+}
+
+/*----- Frontpage Primary Categories */
+/* gallery created using Isotope */
+/* spacing */
+#primary-categories {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+/* introductory text for section */
+.categories-blurb {
+	margin-left: auto;	
+	margin-right: auto;
+	max-width: 500px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.categories-blurb h2 {
+	color: #268da5;
+	font-family: 'Bellefair', serif;
+}
+/* full-width content wrapper contains absolute isotope items.
+ * Confining the height this way prevents page reflow which
+ * interferes with smooth-scroll */
+.category-grid-wrapper {
+	height: 800px;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+}
+/* Isotope children height for smallest devices first */
+.fp-category-item {
+	height: 200px;
+}
+/* force mobile photos full width */
+.fp-grid-sizer,
+.fp-category-item {
+	width: 100%;
+}
+/* helps isotope calculate space alloted */
+.fp-grid-sizer {
+	height: 0;
+}
+/* gives padding between items for finished look */
+.category-frame {
+	position: relative;/*keep tile titles contained*/
+	padding: 10px;
+	height: 100%;
+	width: 100%;
+}
+/* force photos to always fill dynamic sizing frame */
+.category-image-wrapper {
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+}
+/* primary categories color overlays */
+.category-image-wrapper::after,
+.secondary-image-frame::after {
+	content: '';
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	opacity: .3;
+	transition: opacity .3s ease-in-out;
+	z-index: 99;
+}
+.category-image-wrapper.blue-grey::after {
+	background-color: #3f3c28;
+}
+/* remove color overlay on hover */
+.category-link:hover .category-image-wrapper::after,
+.secondary-box:hover .secondary-image-frame::after {
+	opacity: 0;
+}
+/* flex image always fills frame */
+.category-image-wrapper img {
+	flex-shrink: 0;
+	max-width: unset;
+	min-width: 100%;
+	min-height: 100%;
+	transition: all .3s linear;
+	-webkit-transition: all .3s linear;
+	-moz-transition: all .3s linear;
+}
+/* expand image effect on hover */
+.category-link:hover img {
+	transform: scale(1.05);
+	-webkit-transform: scale(1.05);
+	-ms-transform: scale(1.05);
+}
+/* floating title over each category image */
+.fp-category-name {
+	color: #fff;
+	position: absolute;
+	text-align: center;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 92%;
+	z-index: 100;
+}
+.floating-category-name {
+	font-size: 1.6rem;
+	font-weight: 600;
+	letter-spacing: 1.3px;
+	text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+							 0px 8px 13px rgba(0,0,0,0.1),
+							 0px 18px 23px rgba(0,0,0,0.1);
+}
+
+/*----- Frontpage Logo Slider */
+/* utilizes owl carousel */
+/* spacing */
+#logo-slider {
+	padding-bottom: 2rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+/* center carousel slider vertically */
+#logo-slider .owl-stage {
+	display: flex;
+	align-items: center;
+}
+/* center each logo respective of carousel and equalize logo sizes */
+#brand-carousel .owl-slide{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+/* remove default owl nav */
+#logo-slider .owl-dots {
+	display: none;
+}
+
+/*----- Frontpage Parallax */
+/* necessary for parallax JS to work */
+/* not currently being used */
+#fp-parallax {
+	background: rgba(50,50,50,.3);
+	height: 65vh;
+	position: relative;
+	margin-bottom: 2rem;
+	overflow: hidden;
+}
+/* center and fill image inside container */
+.parallax-image {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+#parallax-image {
+	flex-shrink: 0;
+	min-width: 100%;
+	min-height: 100%;
+	max-width: unset;
+}
+/* static text will float over the parallax image */
+.static-text {
+	color: #fff;
+	font-size: 20px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+/*----- Frontpage Featured and Secondary Categories */
+
+/* fonts */
+.featured-secondary-titles {
+	font-family: 'Bellefair', serif;
+	color: #268da5;
+}
+/* vertical spacing */
+#featured-block,
+#secondary-block {
+	margin-bottom: 2rem;
+}
+
+/*-- Featured Carousel */
+/* utilizes owl carousel */
+/* fixed height and images expand and crop to fit */
+#featured-carousel {
+	height: 400px;
+	width: 250px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#featured-carousel .owl-stage-outer,
+#featured-carousel .owl-stage,
+#featured-carousel .owl-item {
+	height: 100%;
+	width: 100%;
+}
+/* prevent wide images from showing over other slides */
+#featured-carousel .owl-item {
+	overflow: hidden;
+}
+/* flex version of object fit also works in IE - Image Container */
+#featured-carousel .featured-slide {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+/* flex version of object fit also works in IE - Image */
+#featured-carousel .featured-slide img {
+	flex-shrink: 0;
+	max-width: unset;/*unset bootstrap max-width*/
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+}
+/* featured item floating titles */
+/* configured to auto wrap text and not crowd edges */
+.featured-slide .overlay-title {
+	background-color: #d73b61;
+	color: #fff;
+	text-align: center;
+	position: absolute;
+	bottom: 5px;
+	left: 5px;
+	right: 5px;
+}
+.featured-slide-title {
+	margin-top: 8px;
+}
+/* svg carousel nav arrows color and shape */
+.owl-prev {
+	height: 40px;
+	position: absolute;
+	left: -56px;
+	top: calc(50% - 20px);
+	transform: rotate(90deg) scale(1.1, .5);
+	transform-origin: center;
+}
+.owl-next {
+	height: 40px;
+	position: absolute;
+	right: -56px;
+	top: calc(50% - 20px);
+	transform: rotate(-90deg) scale(1.1, .5);
+	transform-origin: center;
+}
+/* navigation chevron */
+.svg-chevron {
+	width: 76px;
+	height: 28px;
+}
+/* coral color */
+.svg-chevron polygon {
+	fill: #d64669;
+}
+
+/*-- Secondary Categories */
+/* this frame holds both secondary category boxes */
+/* again confining images to containers for easier
+ * device responsiveness
+ */
+.secondary-frame {
+	height: 420px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+/* each category box takes half the height of the container less for spacing */
+/* this is a perfect example of how sass makes my life easier now */
+.secondary-box {
+	width: 100%;
+	height: 200px;
+	overflow: hidden;
+	position: relative;
+}
+/* image frame is needed to center and fill child image */
+.secondary-image-frame {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+/* if images are too short or narrow they will stretch to fill frame without skewing aspect ratio */
+.secondary-image-frame img {
+	flex-shrink: 0;
+	min-width: 100%;
+	min-height: 100%;
+	max-width: unset;
+	transition:transform .3s linear;
+	-webkit-transition:transform .3s linear;
+	-moz-transition:transform .3s linear;
+}
+/* expand image effect on hover */
+.secondary-box:hover img {
+	transform: scale(1.05);
+	-webkit-transform: scale(1.05);
+	-ms-transform: scale(1.05);
+}
+/* color overlay */
+.secondary-box .secondary-image-frame::after {
+	background-color: #3f3c28;
+}
+/* center each category title in its respective frame */
+.secondary-title {
+	color: #fff;
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 100%;
+	z-index: 99;
+}
+.secondary-overlay-title {
+	font-weight: 600;
+	letter-spacing: 1.3px;
+	text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+							 0px 8px 13px rgba(0,0,0,0.1),
+							 0px 18px 23px rgba(0,0,0,0.1);
+}
+/*----- About Page */
+/* horizontally center title */
+.page-id-261 .entry-title {
+	text-align: center;
+	font-family: 'Indie Flower', cursive;
+	font-size: 2.7rem;
+	margin-bottom: 30px;
+}
+/* text content resizing */
+.page-id-261 .entry-content p{
+	max-width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*----- Store Tour Page*/
+#store-tour-page {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+/* store tour page header */
+.cb-page-header {
+	padding: 0 25px 22px;
+}
+.cb-page-description {
+	max-width: 800px;
+}
+
+/* isotope gallery mobile defaults */
+.tour-tile,
+.tour-tile-sizer,
+.product-tile,
+.product-tile-sizer {
+	width: 100%;
+	padding: 10px;
+}
+.tile-image-wrapper {
+	height: 0;
+	padding-top: 100%;
+	position: relative;	
+	overflow: hidden;
+}
+/* versatile "object-fit" that serves IE */
+.image-flex-frame {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+/* image flex shrink forces all photos to crop */
+.tile-image-wrapper img {
+	flex-shrink: 0;
+	max-width: none;
+	min-width: 100%;
+	min-height: 100%;
+}
+/* center floating title over image */
+.tour-title{
+	color: #333;
+	text-align: center;
+	margin-top: 5px;
+}
+.product-title {
+	color: #fff;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+	width: 100%;
+	text-align: center;
+}
+/* hover overlay to show "+" icon */
+.hover-overlay {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(50,50,50,.3);
+	transition: all 0s;
+	-webkit-transition: all 0s;
+}
+.tile-image-wrapper:hover .hover-overlay {
+	opacity: 1;
+	transition: all .2s ease-in-out;
+	-webkit-transition: all .2s ease-in-out;
+}
+/* "+" icon shows on hover */
+.cross-box {
+	position: absolute;
+	top: 32%;
+	left: 37%;
+	transform: translate(-25%,-25%) scale(.25);
+}
+.cross-background {
+	background: #333;
+	border-radius: 50%;
+	display: flex;
+	height: 200px;
+	width: 200px;
+	justify-content: center;
+	align-items: center;
+}
+/* css plus icon */
+#cross {
+	background: #fff;
+	height: 100px;
+	position: absolute;
+	left: 90px;
+	top: 50px;
+	width: 20px;
+}
+#cross::after {
+	background: #fff;
+	content: "";
+	height: 20px;
+	left: -40px;
+	position: absolute;
+	top: 40px;
+	width: 100px;
+}
+/*-- Featherlight & Isotope Gallery for smooth fast browsing experience */
+/* utilizes Featherlight gallery to for modal details pop-out */
+/* default featherlight content to not show */
+.tile-featherlight {
+	display: none;
+	background-color: #fff;
+	box-shadow: 0 0 30px -5px #333;
+}
+/* border and layout of modal */
+.featherlight .featherlight-content {
+	background-color: #3f928c;
+	border-bottom: none;
+	padding: 15px;
+	width: 100%;
+	margin: 0 auto;
+}
+/* close button */
+.featherlight .featherlight-close-icon {
+	top: 20px;
+	right: 20px;
+	font-size: 20px;
+}
+/* prevent image from overflowing the page and center */
+.feather-image-frame {
+	max-height: calc(95vh - 30px);
+	overflow-y: scroll;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+/* padding */
+.featherlight-content .container {
+	padding: 0px;
+}
+/* crop to fit just right */
+.feather-image-frame img {
+	flex-shrink: 0;
+	min-height: 100%;
+	min-width: 100%;
+}
+/* center featherlight text */
+.tile-featherlight .tour-text {
+	display: flex;
+	flex-basis: 100%;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	padding: 50px 15px;
+}
+/*-- Navigation */
+/* remove featherlight default navigation and add svg arrows */
+.tour-prev {
+	height: 100%;
+	transform: rotate(90deg) scale(1.1, .5);
+	transform-origin: center;
+}
+.tour-next {
+	height: 100%;
+	transform: rotate(-90deg) scale(1.1, .5);
+	transform-origin: center;
+}
+.featherlight-next .svg-chevron, 
+.featherlight-previous .svg-chevron {
+	width: 76px;
+	height: 29px;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+/*reposition gallery navigation UI*/
+.featherlight-previous,
+.featherlight-next {
+	position: fixed;
+	bottom: 40%;
+	top: 40%;
+	width: 50px;
+}
+.featherlight-previous {
+	left: 5px;
+	right: auto;
+}
+.featherlight-next {
+	left: auto;
+	right: 5px;
+}
+/*remove defaults*/
+.featherlight-next:hover,
+.featherlight-previous:hover {
+	background: none;
+}
+.featherlight-previous span {
+	display: inline-block;
+}
+.featherlight-next span {
+	display: inline-block;
+}
+/* lightbox fonts */
+.feather-title {
+	font-family: "Bellefair", serif;
+}
+/* alignment */
+.feather-text {
+	width: 100%;
+}
+.feather-text,
+.feather-text p {
+	margin-bottom: 0; 
+}
+/*- colorful accents - color bars above and below text */
+.tour-text-wrapper {
+	position: relative;
+	width: 100%;
+}
+.tour-text-wrapper::before {
+	background-color: #3f928c;
+	content: '';
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: -26px;
+	width: 75px;
+	height: 5px;
+}
+.tour-text-wrapper::after {
+	background-color: #3f928c;
+	content: '';
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: -26px;
+	width: 75px;
+	height: 5px;
+}
+/*----- Products Archive Page */
+#products-archive-page {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+/* constrain floating category menu to content area 
+ * mobile only 
+ */
+.products-archive-wrapper,
+#st-content-wrapper {
+	position: relative;
+}
+/* gallery wrapper should fill page content area */
+.products-archive-wrapper {
+	height: 100%;
+	min-height: 50vh;
+}
+/* add padding to menu title to match gallery products */
+.gallery-menu-title {
+	padding-top: 10px;
+	text-align: left;
+	margin-left: 28px;
+	color: #d73b61;
+	color: #025f76;
+}
+/* remove bullets from list items */
+.menu-filters ul {
+	list-style: none;
+}
+.menu-filters li {
+	color: #006680;
+	cursor: pointer;
+}
+/*-- Category filters */
+/* hover and active color accents */
+.category-filter.active,
+.category-filter:hover,
+.category-filter:focus {
+	outline: none;
+	color: #D02D4E;
+}
+/* prevent user from selecting text in menu items, credit: css-tricks*/
+.category-filter,
+.gallery-menu-title {
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;          /* Likely future */      
+}
+/* no items message. It hides unless needed, should be rare */
+#no-items-message {
+	display: none;
+	padding: 10px;
+}
+/* isotope gallery items for mobile screens */
+.product-tile,
+.product-tile-sizer {
+	width: 50%;
+}
+
+/*----- Products Single Page */
+.site-main {
+	padding-top: 0;
+}
+/*thumbnail menu and large image are wrapped in a flex box for responsiveness*/
+.single-gallery-grid {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+/* product thumbnails start as row in desktop 
+ * and goes to column at medium widths and below
+ */
+.thumbnail-menu {
+	order: 1;
+	width: 100%;
+	max-width: 500px;
+	padding-top: 30px;
+}
+/* improve ux */
+.thumbnail-menu img {
+	cursor: pointer;
+	width: 18.9%;
+	padding-right: 15px;
+	transition: transform .2s ease;
+}
+/*hover animation*/
+.thumbnail-menu img:hover {
+	transform: scale(1.05);
+}
+/* default image wrapper sizing */
+.variant-images-wrapper {
+	width: 100%;
+	max-width: 500px;
+}
+/* leave hide show to js, keep cropped image centered */
+.single-image-wrapper {
+	display: none;
+	align-items: center;
+	justify-content: center;
+	max-height: 90vh;
+	overflow: hidden;
+}
+/* unset BS max-width on jzoom large image */
+.single-image-wrapper.easyzoom--adjacent .easyzoom-flyout {
+	width: 500px;
+	height: 500px;
+	top: 30px;
+}
+/* remove max-width for zoomed image */
+.easyzoom-flyout img {
+	max-width: unset;
+}
+/* single product text content*/
+.product-header h3 {
+	padding: 0 0 15px;
+	color: #d73b61;
+	font-family: 'Bellefair', serif;
+}
+.product-sidebar-wrapper {
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 0;
+}
+.product-price {
+	font-size: 21px;
+	margin-top: -23px;
+}
+.shipping-header {
+	color: #d73b61;
+}
+@media(max-width: 400px) {
+	/* fp primary cateogories */
+	.categories-blurb h2 {
+		font-size: 8vw;
+	}
+	.nav-container .navbar-brand {
+		max-width: 215px;
+	}
+}
+
+@media(min-width: 576px) {
+	/*----- Hero */
+	/* overlay text with color background */
+	.hero-text {
+		font-size: 16px;
+	}
+	/*----- Frontpage Featured and Secondary Categories*/
+	/*-- Featured Carousel */
+	.owl-prev {
+		left: -28px;
+	}
+	.owl-next {
+		right: -28px;
+	}
+	.svg-chevron polygon {
+		fill: #fff;
+	}
+	/*-- Secondary Categories */
+	.secondary-frame {
+		height: 400px;
+	}
+	.secondary-box {
+		height: 198px;
+	}
+	/*----- Frontpage Parallax */
+	.static-text {
+		flex-direction: row;
+	}
+	/*----- Footer */
+	/*-- Ankler */
+	/*- Contact */
+	.footer-contact-form {
+		padding: 30px;
+		max-width: 750px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	/*----- Store Tour Page*/
+	.tour-tile,
+	.tour-tile-sizer {
+		width:  50%;
+	}
+	/*-- Featherlight */
+
+	/*-- Featherlight */
+	.featherlight .featherlight-content {
+		width: 540px;
+	}
+	/*----- Products Archive Page */
+	.product-tile,
+	.product-tile-sizer {
+		width:  33.333%;
+	}
+	/*----- Products Single Page */
+	.variant-images-wrapper {
+		width: 500px;
+		min-height: 500px;
+	}
+}
+@media(max-width: 767px) {
+	/*----- Floating Menu for Products Archive Page and Store Tour Page */
+	#products-archive-page,
+	#store-tour-page {
+		position: relative;
+	}
+	/* padding for store tour photos when menu is floating */
+	#st-content-wrapper {
+		padding-top: 2rem;
+	}
+	/* shrink overlay when not in use to avoid blocking clicked products */
+	#products-archive-page.no-height::after,
+	#store-tour-page.no-height::after {
+		height: 0;
+	}
+	/* default overlay styling (future mixin?) */
+	#products-archive-page::after,
+	#store-tour-page::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		height: 100%;
+		background-color: rgba(20, 34, 31, 0.55);
+		opacity: 0;
+		transition: opacity .3s ease-in-out;
+		-webkit-transition: opacity .3s ease-in-out;
+	}
+	/* cover content with translucent layer when menu is floating */
+	#products-archive-page.floating-menu::after,
+	#store-tour-page.floating-menu::after {
+		opacity: 1;
+	}
+	/* Floating Category Menu */
+	#products-archive-menu-column,
+	#st-menu-column {
+		margin-top: -10px;
+		margin-bottom: -10px;
+		background-color: #fff;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 250px;
+		z-index: 1;
+		transform: translateX(-250px);
+		-webkit-transform: translateX(-250px);
+		transition: transform .3s ease-in-out;
+		-webkit-transition: transform .3s ease-in-out;
+	}
+	/* show menu when floating menu class is activated */
+	.floating-menu #products-archive-menu-column,
+	.floating-menu #st-menu-column {
+		transform: translateX(0px);
+		-webkit-transform: translateX(0px);
+	}
+	/* in case category products list is longer than content */
+	.overflow-container {
+		height: 100%;
+		overflow: scroll;
+	}
+	/* resize menu title */
+	.gallery-menu-title {
+		font-size: 26px;
+	}
+	/* reposition hamburger to always be visible */
+	.gallery-menu-toggle {
+		cursor: pointer;
+		position: absolute;
+		top: -5px;
+		right: -63px;
+		padding: 10px;
+	}
+	/* general burger patty defaults */
+	.gallery-menu-toggle span {
+		display: block;
+		background-color: #006680;
+		height: 2px;
+		width: 28px;
+		margin-bottom: 6px;
+		position: relative; 
+		border-radius: 2px;
+		transform-origin: 4px 0;
+		transition: background-color .3s ease-in-out, transform .3s ease-in-out, opacity .3s ease-in-out;
+		-webkit-transition: background-color .3s ease-in-out, transform .3s ease-in-out, opacity .3s ease-in-out;
+	}
+	/* individual hamburger patty defaults */
+	.gallery-menu-toggle .patty-1 {
+		transform-origin: 0% 0%;
+	}
+	.gallery-menu-toggle .patty-3 {
+		margin-bottom: 0;
+		transform-origin: 0% 100%;
+	}
+	.floating-menu .hamburger-patty {
+		background-color: #fff;
+	}
+	.floating-menu .patty-1 {
+		transform: rotate(45deg) translate(-3px, -1px);
+	}
+	.floating-menu .patty-2 {
+		opacity: 0;
+		transform: scale(0.2, 0.2);
+	}
+	.floating-menu .patty-3 {
+		transform: rotate(-45deg) translate(-1px, -1px);
+	}
+}
+@media(min-width: 768px) {
+	/*----- Hero */
+	/* overlay text with color background */
+	.hero-text {
+		font-size: 18px;
+		bottom: 0;
+		top: 0;
+		padding: 1rem 1.5rem;
+		width: 200px;
+	}
+	.hero-text-right {
+		left: unset;
+		right: 8%;
+	}
+	.hero-text-left {
+		left: 8%;
+		right: unset;
+	}
+	/*----- Frontpage Primary Categories */
+	.floating-category-name {
+		font-size: 1.8rem;
+	}
+	/*----- Header */
+	.nav-container {
+		flex-direction: column;
+	}
+	/* color bar under active menu item */
+	.cb-navbar-colors .navbar-nav .active>.nav-link::after {
+		content: '';
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: 3px;
+		width: 32%;
+		height: 2px;
+		background: #006680;
+	}
+
+	/*----- Footer */
+	/* Spacing when Business Hours is next to map */
+	.store-hours-wrapper {
+		padding: 1rem 2rem;
+		height: 100%;
+	}
+	.map-frame {
+		padding-top: 62.5%;
+	}
+	.hours-column {
+		padding-bottom: 0px;
+	}
+	/*----- Frontpage About*/
+	/* vertical spacing */
+	#fp-about {
+		padding-top: 2rem;
+	}
+	.about-content-block,
+	.about-image-block {
+		margin-bottom: 2rem;
+	}
+
+	/*----- Frontpage Primary Categories*/
+	.fp-category-item {
+		width: 10%;
+	}
+	.category-grid-wrapper {
+		height: 500px;
+	}
+	.fp-category-item.fp-category-tall {
+		width: 40%;
+		height: 500px;
+	}
+	.fp-category-item.fp-category-wide {
+		width: 60%;
+		height: 250px;
+	}
+	.fp-category-item.fp-category-square {
+		width: 30%;
+		height: 250px;
+	}
+	/*----- Frontpage Featured and Secondary Categories */
+	/*-- Featured Items */
+	/* carousel canvas */
+	#featured-carousel {
+		height: 450px;
+		width: 300px;
+	}
+	/* owl navs */
+	.owl-prev {
+		left: -56px;
+		transform: rotate(90deg) scale(1.2, .6);
+	}
+	.owl-next {
+		right: -56px;
+		transform: rotate(-90deg) scale(1.2, .6);
+	}
+	.svg-chevron polygon {
+		fill: #d64669;
+	}
+	/*-- Secondary Categories */
+	/* Secondary Categories frame */
+	.secondary-frame {
+		height: 450px;
+	}
+	/* Individual secondary categories */
+	.secondary-box {
+		width: 300px;
+		height: 215px;
+	}
+	/*----- Store Tour */
+	/*-- Featherlight */
+
+	/*-- Featherlight */
+	.featherlight .featherlight-content {
+		width: 720px;
+	}
+	/*----- Products Single Page */
+	.single-gallery-grid {
+		flex-direction: row;
+	}
+	.thumbnail-menu {
+		display: flex;
+		flex-direction: column;
+		order: 0;
+		width: 100px;
+		justify-content: flex-start;
+		align-self: flex-start;
+		padding-top: 0;
+	}
+	.thumbnail-menu img {
+		padding-right: 0;
+		padding-bottom: 15px;
+		width: 75px;
+	}
+}
+/* Large Landscape screens */
+@media(min-width: 992px) {
+	/*----- Frontpage About */
+	/*two column spacing rules*/
+	#fp-about {
+		padding-top: 4rem;
+		padding-bottom: 2rem;
+	}
+	.about-content-block,
+	.about-image-block {
+		margin: 0;
+		height: 100%;
+	}
+	/*----- Frontpage Primary Categories*/
+	/* change overall height of grid and items */
+	.category-grid-wrapper, 
+	.fp-category-item.fp-category-tall {
+		height: 600px;
+	}
+	.fp-category-item.fp-category-wide {
+		height: 300px;
+	}
+	.fp-category-item.fp-category-square {
+		height: 300px;
+	}
+	
+	/*----- Frontpage Featured and Secondary Categories*/
+	/*----- Frontpage Featured and Secondary Categories*/
+	/*-- Featured Carousel */
+	#featured-carousel {
+		height: 600px;
+		width: 400px;	
+	}
+	.owl-prev {
+		left: -60px;
+		transform: rotate(90deg) scale(1.5, .6);
+	}
+	.owl-next {
+		right: -60px;
+		transform: rotate(-90deg) scale(1.5, .6);
+	}
+	/*-- Secondary Categories */
+	/* sizing */
+	.secondary-frame {
+		height: 600px;
+	}
+	.secondary-box {
+		height: 290px;
+		width: 400px;
+	}
+
+	/*----- Store Tour */
+	/*-- Featherlight */
+	.featherlight .featherlight-content {
+		width: 960px;
+	}
+	
+	/*----- Products Archive Page */
+	/* of two absolute stacked images, the first one is visible */
+	.product-tile .image-flex-frame:first-child {
+		opacity: 1;
+		transition: opacity .3s ease;
+	}
+	.product-tile .image-flex-frame.archive-variant-1 {
+		opacity: 0;
+		transition: opacity .3s ease-out;
+	}
+	/* on hover the first is hidden and the second is revealed */
+	.product-tile:hover .image-flex-frame:first-child {
+		opacity: 0;
+	}
+	.product-tile:hover .image-flex-frame:last-child {
+		opacity: 1;
+	}
+
+	/*----- Products Single Page */
+	.content-main {
+		padding-top: 30px;
+	}
+	.single-gallery-grid {
+		justify-content: flex-end;
+	}
+	.product-sidebar-wrapper {
+		padding: 30px 0px;
+	}
+}
+/* Large Landscape screens */
+@media(min-width: 992px) and (orientation: landscape) {
+	/*----- Hero */
+	/*set hero height temporarily until page loads*/
+	#hero {
+		height: 90vh;
+	}
+	/*----- Frontpage Categories */
+	.floating-category-name {
+		font-size: 2.1rem;
+	}
+	/*----- Frontpage Parallax */
+	#fp-parallax {
+		height: 75vh;
+	}
+	/*----- Footer */
+	/* Map Column Sizing */
+	.map-frame {
+		padding-top: 65vh;
+	}
+	
+}
+@media(min-width: 1200px) {
+	/*----- Hero */
+	/* overlay text with color background */
+	.hero-text {
+		font-size: 1.5rem;
+		width: 325px;
+	}
+	/*----- Footer */
+	/*-- Ankler */
+	/*- Contact */
+	.footer-contact-form {
+		padding: 0 30px;
+	}
+	/*- Hours*/
+	/* Business hours is first flex-child for x-larger screens */
+	.hours-column {
+		order: 0;
+	}
+	/*----- Frontpage Primary Categories*/
+	/* change overall height of grid and items */
+	.category-grid-wrapper,
+	.fp-category-item.fp-category-tall {
+		height: 750px;
+	}
+	.fp-category-item.fp-category-wide {
+		height: 375px;
+	}
+	.fp-category-item.fp-category-square {
+		height: 375px;
+	}
+
+	/*----- Frontpage Featured and Secondary Categories */
+	/*-- Featured Items */
+	#featured-carousel {
+		width: 460px;
+	}
+	/* carousel navigation */
+	.owl-prev {
+		left: -70px;
+	}
+	.owl-next {
+		right: -70px;
+	}
+	/*-- Secondary Categories */
+	.secondary-box {
+		width: 460px;
+	}
+
+	/*----- Store Tour Page*/
+	.tour-tile,
+	.tour-tile-sizer {
+		width: 33.333%;
+	}
+	.product-tile,
+	.product-tile-sizer {
+		width: 25%;
+	}
+	/*-- Featherlight */
+	.featherlight .featherlight-content {
+		width: 1140px;
+	}
+}

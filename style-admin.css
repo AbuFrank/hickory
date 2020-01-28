@@ -1,0 +1,13 @@
+/*
+ * -----CB custom admin styles
+ *
+ * --Contents
+ * ACF
+ *
+ */
+
+/*----- ACF */
+/* Increase taxonomy checklist field height for Products */
+.product-category-checklist .acf-taxonomy-field .categorychecklist-holder {
+	max-height: 500px;
+}
